@@ -1,13 +1,11 @@
 var computerChoices = ["a","b","c","d","e","f","g","h","i","j","i","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
-​
     
     var wins = 0;
     var losses = 0;
     var guessesSoFar= 5;
     var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-​
+
     document.onkeyup = function(event) {
-​
       var userChoiceText = document.getElementById("userchoice-text");
       var computerChoiceText = document.getElementById("computerchoice-text");
       var winsText = document.getElementById("wins-text");
@@ -17,21 +15,24 @@ var computerChoices = ["a","b","c","d","e","f","g","h","i","j","i","k","l","m","
       var userGuess = event.key;
          
           if (userGuess === computerGuess) 
-​
+
             { 
               wins++;
+              alert("You Win!")
           
           } else if (guessesSoFar === 0)
              { 
                losses ++;
+               alert("You Lose!")
+               
           }
-​
+
               else {
                 guessesSoFar --;
+                alert("incorrect")
           }
-​
-            
-​
+
+
               console.log(guessesSoFar);
         userChoiceText.textContent = "You picked " + userGuess;
         computerChoiceText.textContent = "Computer picked " + computerGuess;
@@ -39,4 +40,3 @@ var computerChoices = ["a","b","c","d","e","f","g","h","i","j","i","k","l","m","
         lossesText.textContent =  "You Lost! " + losses;
         guessesText.textContent =  "You have " + guessesSoFar + " left";
           }
-​
